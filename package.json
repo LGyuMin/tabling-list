@@ -10,7 +10,11 @@
   },
   "devDependencies": {
     "@vitejs/plugin-legacy": "^4.0.2",
+    "sass": "^1.60.0",
     "terser": "^5.16.6",
     "vite": "^4.2.0"
+  },
+  "dependencies": {
+    "start-dom-jsx": "^1.0.0-beta.1"
   }
 }
