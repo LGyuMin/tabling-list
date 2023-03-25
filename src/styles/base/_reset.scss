@@ -19,6 +19,9 @@
     word-break: break-word;
     tab-size: 4;
 }
+@media screen and (max-width: 1024px) {
+    html { font-size: 14px; }
+}
 html,
 body {
     height: 100%;
