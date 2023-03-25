@@ -1,0 +1,45 @@
+.booking-detail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    .detail-box {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        z-index: 10;
+        background: #fff;
+        border-radius: 15px;
+        padding: 15px;
+        .title {
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .detail {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            &:nth-child(2) { margin-bottom: 25px; }
+            .detail-item {
+                display: flex;
+                gap: 10px;
+                .subtitle {
+                    width: 25%;
+                    text-align: center;
+                    color: #acacac;
+                }
+            }
+        }
+    }
+
+    .detail-dim {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .5);
+    }
+}
