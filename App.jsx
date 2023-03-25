@@ -9,8 +9,10 @@ export default class App extends Component {
         return (
             <div id="App">
                 <div data-component="header" />
-                <div data-component="booking-list" />
-                <div data-component="booking-detail" />
+                <div class='main'>
+                    <div data-component="booking-list" />
+                    <div data-component="booking-detail" />
+                </div>
             </div>
         )
     }
