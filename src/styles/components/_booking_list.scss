@@ -30,6 +30,14 @@
             p {
                 text-align: center;
                 font-size: rem(20);
+                &.reserved { 
+                    color: $reserved-color;
+                    font-weight: bold;
+                }
+                &.seated { 
+                    color: $seated-color; 
+                    font-weight: bold;
+                }
             }
         }
         .middle {
@@ -46,7 +54,11 @@
                 border-radius: 5px;
                 width: rem(75);
                 height: rem(40);
-                background: $reserved-color;
+                background: $button-bg;
+                color: #fff;
+                &:hover {
+                    opacity: 0.8;
+                }
             }
         }
     }
