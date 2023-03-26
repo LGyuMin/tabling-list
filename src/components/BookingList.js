@@ -4,6 +4,10 @@ import store from '@store/store';
 
 export default class BookingList extends Component {
     template() {
+        const BUTTON_TEXT = {
+            seated: '퇴석',
+            reserved: '착석',
+        }
         const STATUS = store.getState().BOOKING_STATUS;
         let filteredList = store.getState().bookingList.filter(item => item.status !== 'done');
 
@@ -16,19 +20,19 @@ export default class BookingList extends Component {
                     <div class='booking-item'>
                         <div class='left'>
                             <p>${dayjs(item.timeReserved).format('HH:mm')}</p>
-                            <p>${STATUS[item.status]}</p>
+                            <p class="${item.status}">${STATUS[item.status]}</p>
                         </div>
                         <div class='middle'>
-                            <p>예약자명 - ${item.customer.name}</p>
+                            <p>${item.customer.name} - ${item.tables.map(table => table.name).join(', ')}</p>
                             <p>성인 ${item.customer.adult} 아이 ${item.customer.child}</p>
                             <p class='menu'>
                                 ${
-                                    item.menus.map(menu => `${menu.name} ${menu.qty}`).join(', ')
+                                    item.menus.map(menu => `${menu.name}(${menu.qty})`).join(', ')
                                 }
                             </p>
                         </div>
                         <div class='right'>
-                            <button>${item.status}</button>
+                            <button>${BUTTON_TEXT[item.status]}</button>
                         </div>
                     </div>
                 `).join('')
