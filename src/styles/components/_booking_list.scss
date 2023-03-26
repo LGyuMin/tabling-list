@@ -3,8 +3,17 @@
     flex-direction: column;
     gap: 10px;
     width: 100%;
-    height: calc(100vh - 200px);
+    height: calc(100vh - 250px);
     overflow-y: scroll;
+    padding-right: 10px;
+    padding-bottom: 10px;
+
+    .no-result {
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: calc(100vh - 260px);
+    }
 
     .booking-item {
         background: #fff;
@@ -23,6 +32,12 @@
                 font-size: rem(20);
             }
         }
+        .middle {
+            width: 60%;
+            p {
+                @include ellipsis(1);
+            }
+        }
         .right {
             margin-left: auto;
             display: flex;
@@ -39,6 +54,8 @@
 
 @media screen and (max-width: 1024px) {
     .booking-list {
-        overflow-y: auto;
+        overflow-y: unset;
+        padding-right: 0;
+        height: auto;
     }
 }

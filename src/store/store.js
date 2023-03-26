@@ -2,7 +2,11 @@ import { createStore } from "redux";
 
 const initialState = {
     bookingList: [],
-    selectedBooking: {}
+    selectedBooking: {},
+    BOOKING_STATUS: {
+        seated: '착석 중',
+        reserved: '예약'
+    }
 };
 
 // action types
@@ -12,7 +16,7 @@ const FETCH_LIST = 'FETCH_LIST',
 
 // action creation funcions
 export const fetchList = (list) => ({type: FETCH_LIST, list}),
-    changeBookingState = (change) => ({type: CHANGE_BOOKING_STATE, change}),
+    changeBookingState = (payload) => ({type: CHANGE_BOOKING_STATE, payload}),
     selectBooking = (booking) => ({type: SELECT_BOOKING, booking});
 
 // reducer
@@ -21,7 +25,7 @@ const reducer = (state = initialState, action) => {
         case "FETCH_LIST":
             return {
                 ...state,
-                bookingList: action,
+                bookingList: action.list,
             }
         case "CHANGE_BOOKING_STATE":
             return {

@@ -13,8 +13,8 @@ export default class Component {
     mounted () {};
     template () { return ''; }
     render () {
-        // this.$target.innerHTML = this.template();
-        this.$target.replaceWith(this.template());
+        // console.log(this.template());
+        this.$target.innerHTML = this.template();
         this.mounted();
     //   this.setEvent();
     }

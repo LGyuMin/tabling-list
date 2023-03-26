@@ -1,10 +1,9 @@
-import { h, Fragment } from 'start-dom-jsx'
 import Component from '@core/Component';
 
 export default class Header extends Component {
     template() {
-        return (
+        return `
             <h1 class="app-title">예약 목록</h1>
-        )
+        `   
     }
 }
