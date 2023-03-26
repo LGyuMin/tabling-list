@@ -17,7 +17,7 @@ export default class BookingList extends Component {
         return `
             ${
                 filteredList.map(item => `
-                    <div class='booking-item'>
+                    <div class='booking-item' data-id='${item.id}' data-status='${item.status}'>
                         <div class='left'>
                             <p>${dayjs(item.timeReserved).format('HH:mm')}</p>
                             <p class="${item.status}">${STATUS[item.status]}</p>
@@ -32,11 +32,18 @@ export default class BookingList extends Component {
                             </p>
                         </div>
                         <div class='right'>
-                            <button>${BUTTON_TEXT[item.status]}</button>
+                            <button class='booking-btn'>${BUTTON_TEXT[item.status]}</button>
                         </div>
                     </div>
                 `).join('')
             }
         `
+    }
+
+    setEvent() {
+        this.addEvent('click', '.booking-btn', ({target}) => {
+            console.log(target.closest('.booking-item').dataset.id);
+            console.log(target.closest('.booking-item').dataset.status);
+        })
     }
 }
