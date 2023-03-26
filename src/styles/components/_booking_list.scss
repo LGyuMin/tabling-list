@@ -2,6 +2,9 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 100%;
+    height: calc(100vh - 200px);
+    overflow-y: scroll;
 
     .booking-item {
         background: #fff;
@@ -31,5 +34,11 @@
                 background: $reserved-color;
             }
         }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .booking-list {
+        overflow-y: auto;
     }
 }

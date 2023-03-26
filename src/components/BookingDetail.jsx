@@ -1,5 +1,6 @@
 import { h, Fragment } from 'start-dom-jsx'
 import Component from '@core/Component';
+import ic_closed from '@assets/ic_closed.svg';
 
 export default class BookingDetail extends Component {
     template() {
@@ -7,6 +8,9 @@ export default class BookingDetail extends Component {
             <div class='booking-detail'>
                 <div class='detail-box'>
                     <div class='title'>예약 정보</div>
+                    <button class='close'>
+                        <img src={ic_closed} alt="close icon" />
+                    </button>
                     <div class="detail">
                         <div class="detail-item">
                             <div class='subtitle'>예약 상태</div>

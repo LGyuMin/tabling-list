@@ -16,6 +16,7 @@ export default {
   resolve: {
     alias: [
       { find: '@core', replacement: resolve(__dirname, 'src/core')},
+      { find: '@assets', replacement: resolve(__dirname, 'src/assets')},
       { find: '@components', replacement: resolve(__dirname, 'src/components')},
       { find: '@hooks', replacement: resolve(__dirname, 'src/hooks')},
       { find: '@styles', replacement: resolve(__dirname, 'src/styles')},
