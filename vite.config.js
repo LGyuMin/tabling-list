@@ -9,10 +9,6 @@ export default {
         polyfills: ["es.array.iterator"],
     }),
   ],
-  esbuild: {
-    jsxFactory: 'h',
-    jsxFragment: 'Fragment'
-  },
   resolve: {
     alias: [
       { find: '@core', replacement: resolve(__dirname, 'src/core')},
