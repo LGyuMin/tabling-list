@@ -1,6 +1,5 @@
 import dayjs from 'dayjs';
 import Component from '@core/Component';
-// import store from '@store/store';
 
 export default class BookingList extends Component {
     template() {

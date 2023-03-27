@@ -1,10 +1,8 @@
-// import { h, Fragment } from 'start-dom-jsx'
 import axios from 'axios';
 import Component from '@core/Component';
 import Header from '@components/Header';
 import BookingList from '@components/BookingList';
 import BookingDetail from '@components/BookingDetail';
-import store, { fetchList, selectBooking } from '@store/store';
 
 export default class App extends Component {
     template() {
