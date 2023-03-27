@@ -19,8 +19,8 @@
         background: #fff;
         border-radius: 15px;
         display: flex;
-        padding: 15px;
-        gap: rem(20);
+        padding: rem(15);
+        justify-content: space-between;
         .left {
             width: 15%;
             display: flex;
@@ -60,6 +60,11 @@
                     opacity: 0.8;
                 }
             }
+            @media (hover: hover) and (pointer: fine) {
+                .booking-btn:hover {  
+                    opacity: 0.8;
+                }
+            }
         }
     }
 }
@@ -69,5 +74,19 @@
         overflow-y: unset;
         padding-right: 0;
         height: auto;
+        .booking-item {
+            padding: rem(8);
+            .left {
+                width: 20%;
+                p {
+                    font-size: 1rem;
+                }
+            } 
+            .right .booking-btn {
+                width: rem(65);
+                height: rem(35);
+                font-size: 1rem;
+            }
+        }
     }
 }

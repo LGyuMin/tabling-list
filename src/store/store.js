@@ -5,7 +5,8 @@ const initialState = {
     selectedBooking: {},
     BOOKING_STATUS: {
         seated: '착석 중',
-        reserved: '예약'
+        reserved: '예약',
+        done: '식사 완료'
     }
 };
 
@@ -32,7 +33,7 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 bookingList: state.bookingList.map(item => {
                     if(item.id == action.payload.id) {
-                        item.status = action.payload.status
+                        item.status = action.payload.status == 'reserved' ? 'seated' : 'done'
                     }
                     return item;
                 })

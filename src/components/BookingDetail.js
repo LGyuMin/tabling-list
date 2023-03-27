@@ -1,12 +1,15 @@
 import dayjs from 'dayjs';
 import Component from '@core/Component';
-import store from '@store/store';
 import ic_closed from '@assets/ic_closed.svg';
 
 export default class BookingDetail extends Component {
     template() {
-        const STATUS = store.getState().BOOKING_STATUS;
-        const detail = store.getState().selectedBooking.booking
+        const STATUS = this.getBookingStatus();
+        const detail = this.getSelectedBooking();
+        const list = this.getFilteredBookingList();
+
+        if (!detail || list.length === 0) return '';
+
         return `
             <div class='detail-box'>
                 <div class='title'>예약 정보</div>
@@ -49,9 +52,5 @@ export default class BookingDetail extends Component {
             </div>
             <div class='detail-dim'></div>
         `
-    }
-
-    setup() {
-        // detail = store.getState().selectedBooking.booking;
     }
 }
