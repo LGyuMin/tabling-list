@@ -1,10 +1,14 @@
+import store, { fetchList, selectBooking, changeBookingState } from '@store/store';
+
 export default class Component {
     $target;
     props;
-    state; 
+    $store;
+    state;
     constructor ($target, props) {
         this.$target = $target;
         this.props = props;
+        this.$store = store;
         this.setup();
         this.setEvent();
         this.render();
@@ -13,22 +17,47 @@ export default class Component {
     mounted () {};
     template () { return ''; }
     render () {
-        // console.log(this.template());
         this.$target.innerHTML = this.template();
         this.mounted();
-        // this.setEvent();
     }
     setEvent () {}
+
     setState (newState) {
         this.state = { ...this.state, ...newState };
         this.render();
     }
 
+    fetchList(state) {
+        this.$store.dispatch(fetchList(state));
+        this.render();
+    }
+
+    selectBooking(state) {
+        this.$store.dispatch(selectBooking(state));
+        this.render();
+    }
+
+    changeBookingState(state) {
+        this.$store.dispatch(changeBookingState(state));
+        this.render();
+    }
+
+    getBookingStatus() {
+        return this.$store.getState().BOOKING_STATUS
+    }
+
+    getSelectedBooking() {
+        return this.$store.getState().selectedBooking.booking
+    }
+
+    getFilteredBookingList() {
+        return this.$store.getState().bookingList.filter(item => item.status !== 'done');
+    }
+
     addEvent (eventType, selector, callback) {
-        const children = [ ...this.$target.querySelectorAll(selector) ];
         this.$target.addEventListener(eventType, event => {
             if (!event.target.closest(selector)) return false;
             callback(event);
-        })
+        }, true)
     }
 }

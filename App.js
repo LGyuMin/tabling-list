@@ -19,17 +19,16 @@ export default class App extends Component {
 
     mounted() {
         new Header(document.querySelector('[data-component="header"]'));
-        const bookingList = new BookingList(document.querySelector('.booking-list'))
+        const bookingDetail = new BookingDetail(document.querySelector('.booking-detail'))
+        const bookingList = new BookingList(document.querySelector('.booking-list'), {
+            bookingDetail
+        })
 
         axios.get('https://frontend.tabling.co.kr/v1/store/9533/reservations')
         .then(res => {
             console.log(res.data.reservations);
-            store.dispatch(fetchList(res.data.reservations))
-            store.dispatch(selectBooking(res.data.reservations[0]))
-            
-            // new BookingList(document.querySelector('.booking-list'))
-            bookingList.render();
-            new BookingDetail(document.querySelector('.booking-detail'))
+            bookingList.fetchList(res.data.reservations)
+            bookingDetail.selectBooking(res.data.reservations[0])
         })
         .catch(err => {
             console.log(err);
