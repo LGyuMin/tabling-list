@@ -46,16 +46,17 @@
 
 @media screen and (max-width: 1024px) {
     .booking-detail {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
+        // display: none;
+        // position: fixed;
+        // top: 0;
+        // left: 0;
+        // width: 100%;
     
         .detail-box {
             width: 100%;
             position: fixed;
             bottom: -15px;
+            left: 0;
             z-index: 10;
             padding: 15px 15px 30px;
             .close { display: block; }
@@ -69,6 +70,14 @@
             top: 0;
             left: 0;
             background-color: rgba(0, 0, 0, .5);
+        }
+
+        &.open {
+            display: block;
+        }
+
+        &.close {
+            display: none;
         }
     }    
 }
