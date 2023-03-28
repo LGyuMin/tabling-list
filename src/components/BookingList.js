@@ -1,6 +1,11 @@
 import dayjs from 'dayjs';
 import Component from '@core/Component';
 
+function padNumber (number) {
+    if (number < 10) return `0${number}`
+    else return number
+}
+
 export default class BookingList extends Component {
     template() {
         const BUTTON_TEXT = {
@@ -23,7 +28,7 @@ export default class BookingList extends Component {
                         </div>
                         <div class='middle'>
                             <p>${item.customer.name} - ${item.tables.map(table => table.name).join(', ')}</p>
-                            <p>성인 ${item.customer.adult} 아이 ${item.customer.child}</p>
+                            <p>성인 ${padNumber(item.customer.adult)} 아이 ${padNumber(item.customer.child)}</p>
                             <p class='menu'>
                                 ${
                                     item.menus.map(menu => `${menu.name}(${menu.qty})`).join(', ')
