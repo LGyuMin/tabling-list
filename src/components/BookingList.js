@@ -56,6 +56,7 @@ export default class BookingList extends Component {
                 bookingDetail.render();
             } else {
                 bookingDetail.selectBooking(item)
+                if (screen.width < 1024) bookingDetail.setState({open: true, close: false})
             }
         })
 

@@ -15,8 +15,8 @@ export default class BookingDetail extends Component {
         return `
             <div class='detail-box ${ classNames({open, close}) }'>
                 <div class='title'>예약 정보</div>
-                <button class='close'>
-                    <img src="${ic_closed}" alt="close icon" />
+                <button class='close-btn'>
+                    <img src="${ic_closed}" alt="close icon" class="close-btn-icon" />
                 </button>
                 <div class="detail">
                     <div class="detail-item">
@@ -63,25 +63,21 @@ export default class BookingDetail extends Component {
         }
     }
 
-    setDetailClassName() {
-        const { open, close } = this.state;
-        if (screen.width < 1024) {
-            this.setState({open: true, close: false})
-        } else {
-            this.setState({open: false, close: false})
-        }
-    }
-
     setEvent() {
         let timer;
         window.addEventListener('resize', () => {
             clearTimeout(timer);
             timer = setTimeout(() => {
-                console.log(11);
-                // if (screen.width >= 1024) {
-                //     this.setState({open: false, close: true})
-                // }
+                if (screen.width >= 1024) {
+                    this.setState({open: false, close: false})
+                }
             }, 300);
         });
+
+        this.addEvent('click', '.booking-detail', ({target}) => {
+            if (target.className === 'detail-dim' || target.className === 'close-btn-icon') {
+                this.setState({close: true})
+            }
+        })
     }
 }
