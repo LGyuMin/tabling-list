@@ -53,7 +53,7 @@ export default class BookingList extends Component {
 
             if (target.className === 'booking-btn') {
                 this.changeBookingState({id: item.id, status: item.status});
-                bookingDetail.render();
+                if (window.innerWidth < 1024) bookingDetail.setState({open: false, close: false})
             } else {
                 bookingDetail.selectBooking(item)
                 if (window.innerWidth < 1024) bookingDetail.setState({open: true, close: false})
