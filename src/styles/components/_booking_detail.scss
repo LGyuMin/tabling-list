@@ -67,9 +67,9 @@
             &.close {
                 &+.detail-dim{ 
                     display: none; 
-                    animation: fadeOut 0.4s ease-out forwards;
+                    animation: fadeOut 0.8s ease-out forwards;
                 }
-                animation: closePopup 0.4s ease-out;
+                animation: closePopup 0.8s ease-out;
                 animation-fill-mode: forwards;
             }
         }
@@ -94,7 +94,7 @@
     }
     
     to {
-        bottom: -200px;
+        bottom: -100%;
         opacity: 0;
         display: none;
     }
