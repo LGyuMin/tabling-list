@@ -68,7 +68,7 @@ export default class BookingDetail extends Component {
         window.addEventListener('resize', () => {
             clearTimeout(timer);
             timer = setTimeout(() => {
-                if (screen.width >= 1024) {
+                if (window.innerWidth >= 1024) {
                     this.setState({open: false, close: false})
                 }
             }, 300);
