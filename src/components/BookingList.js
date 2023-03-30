@@ -44,12 +44,21 @@ export default class BookingList extends Component {
         `
     }
 
+    mounted() {
+        const bookingDetail = document.querySelector('.booking-detail')
+        if (this.getFilteredBookingList().length < 1) {
+            bookingDetail.style.display = 'none'
+        } else {
+            bookingDetail.style.display = 'block'
+        }
+    }
+
     setEvent() {
         const { bookingDetail } = this.props;
 
         this.addEvent('click', '.booking-item', ({target}) => {
             const item_id = target.closest('.booking-item').dataset.id;
-            const item = this.$store.getState().bookingList.find(item => item.id === item_id)
+            const item = this.$store.getState().bookingList.find(item => item.id === item_id);
 
             if (target.className === 'booking-btn') {
                 this.changeBookingState({id: item.id, status: item.status});
