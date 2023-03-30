@@ -24,12 +24,11 @@ export default class App extends Component {
 
         axios.get('https://frontend.tabling.co.kr/v1/store/9533/reservations')
         .then(res => {
-            console.log(res.data.reservations);
             bookingList.fetchList(res.data.reservations)
             bookingDetail.selectBooking(res.data.reservations[0])
         })
         .catch(err => {
-            console.log(err);
+            alert('예약목록을 가져오는데 문제가 생겼습니다. 관리자에게 문의하세요.')
         })
 
     }
